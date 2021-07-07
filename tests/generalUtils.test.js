@@ -20,8 +20,12 @@ test('start was 1 now 1 0', () => {
 
 test('sort', () => {
   expect(sortObject({a:1,c:3,b:2})).toEqual({a:1, b:2, c:3});
-})
+});
 
-test('getTimestampFromDate', ()=> {
+test('getTimestampFromDate with string value', ()=> {
   expect(getTimestampFromDate("01/01/2020")).toBe(1577829600);
-})
+});
+
+test('getTimestampFromDate empty', ()=> {
+  expect(getTimestampFromDate()).not.toBe(NaN);
+});

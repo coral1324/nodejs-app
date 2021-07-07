@@ -9,7 +9,7 @@ const _getPrecentageForCoin = async(coinName, fromTimestamp, toTimestamp) => {
 }
 
 const getPrecentageForCoinList = async(coinList, timestamp) => {
-    let currentTimestamp = getTimestampFromDate();
+    let currentTimestamp = getTimestampFromDate("");
     let result = await Promise.all(
         coinList.map(async(coin) => ({name: [coin], prec: await _getPrecentageForCoin(coin, timestamp, currentTimestamp)}))
         );

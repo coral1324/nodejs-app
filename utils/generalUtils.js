@@ -10,6 +10,12 @@ const sortObject = (obj) => {
 }
 
 const getTimestampFromDate = (strDate) => {
-    return Math.floor(new Date(strDate).getTime()/1000);
+    let date;
+    if(!strDate) {
+        date = new Date();
+    } else {
+        date = new Date(strDate);
+    }
+    return Math.floor(date.getTime()/1000);
 }
 module.exports = {calcPercentage, sortObject, getTimestampFromDate}
