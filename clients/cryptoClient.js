@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const getCoinPriceForTimesatmp = async (coinName, timestamp) => {
     const result = await axios
-    .get(`${process.env.BASE_URL}/data/pricehistorical?fsym=${coinName}&tsyms=USD&ts=${new Date(timestamp).getTime()}`
+    .get(`${process.env.BASE_URL}/data/pricehistorical?fsym=${coinName}&tsyms=USD&ts=${timestamp}`
         , {
             headers: {
                 Apikey : process.env.API_KEY
@@ -10,7 +10,9 @@ const getCoinPriceForTimesatmp = async (coinName, timestamp) => {
            }
            );
     if(result.data !=null && result.data.Response != null) {
-        throw {error: {message: result.Message , type: "validation"} }
+        let error = new Error(result.data.Message);
+        error.status = 400;
+        throw error;
     }
     return result.data[coinName].USD;
 } 

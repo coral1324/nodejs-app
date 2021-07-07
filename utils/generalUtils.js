@@ -1,5 +1,5 @@
 const calcPercentage = (start, end)=> {
-    return ((end-start)/start)*100;
+    return Math.floor(((end-start)/start)*100);
 }
 
 const sortObject = (obj) => {
