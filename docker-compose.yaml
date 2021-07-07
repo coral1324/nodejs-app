@@ -9,4 +9,4 @@ services:
       - "3000:3000"
     environment:
         API_KEY: 23a593c29035f272c70f73c15f003db6b42764bdb73a670efdf98a5959ae25eb
-    
+        BASE_URL: https://min-api.cryptocompare.com
