@@ -1,10 +1,10 @@
 # nodejs-app
 
-### Archeticture
+### Architecture
 
-* services folder - contanins the buissness logic.
+* services folder - contanins the business logic.
 * routes folder - contains the basic route code(controller).
-* clients folder - contains creypto client code.
+* clients folder - contains crypto client code.
 * utils folder - contains helpers functions.
 * tests folder - contains all unit tests for each layer.
 ----------------------------------------------------------

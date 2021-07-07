@@ -1,4 +1,4 @@
-const {getCoinPriceForTimesatmp} = require("../clients/creptoClient");
+const {getCoinPriceForTimesatmp} = require("../clients/cryptoClient");
 const {calcPercentage, sortObject} = require("../utils/generalUtils");
 //calculate precentage 
 const _getPrecentageForCoin = async(coinName, fromTimestamp, toTimestamp) => {

@@ -1,6 +1,6 @@
 const {getPrecentageForCoinList} = require("../services/coinService");
-const {getCoinPriceForTimesatmp } = require("../clients/creptoClient");
-jest.mock("../clients/creptoClient", () => ({
+const {getCoinPriceForTimesatmp } = require("../clients/cryptoClient");
+jest.mock("../clients/cryptoClient", () => ({
      getCoinPriceForTimesatmp: jest.fn()}));
      const currentTimestamp = new Date("01/01/2020").getTime()
   test('getPrecentageForCoin: calc + sort', () => {
