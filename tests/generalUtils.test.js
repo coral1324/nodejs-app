@@ -13,3 +13,7 @@ test('start was 1 now 4 300', () => {
 test('start was 4 now 1 -75', () => {
   expect(calcPercentage(4, 1)).toBe(-75);
 });
+
+test('start was 1 now 1 0', () => {
+  expect(calcPercentage(1, 1)).toBe(0);
+});

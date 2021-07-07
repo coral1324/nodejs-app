@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const {getPrecentageForCoinList} = require("../service/coinService");
+const {getPrecentageForCoinList} = require("../services/coinService");
+const moment = require("moment");
+
 const _validateParam = (params) => {
 if (params.coinList == null
     || params.coinList == ""
     || params.timestamp == null
-    ||params.timestamp == "") {
+    || params.timestamp == "" 
+    || !moment(params.timestamp, "DD/MM/YYYY").isValid()) {
       return false
     }
 return true;
@@ -16,7 +19,7 @@ router.get('/', async function(req, res, next) {
    res.send("validation error");
    return;
  }
- let result = await getPrecentageForCoinList(req.query.coinList.split(','), req.query.timestamp);
+ let result = await getPrecentageForCoinList(req.query.coinList.split(','), new Date(req.query.timestamp).getTime());
  res.status(200);
  res.send(result);
 });

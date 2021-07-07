@@ -1,5 +1,5 @@
 {
-  "name": "chat-app",
+  "name": "nodejs-app",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -13,12 +13,11 @@
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "minimist": "^1.2.5",
-    "morgan": "~1.9.1",
-    "promise": "^8.1.0"
-  },
-  "devDependencies": {
     "jest": "^27.0.6",
+    "minimist": "^1.2.5",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "promise": "^8.1.0",
     "supertest": "^6.1.3"
   }
 }

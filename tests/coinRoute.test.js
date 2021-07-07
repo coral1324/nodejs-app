@@ -2,8 +2,8 @@ const app = require('../app');
 const request = require('supertest');
 
 
-const { getPrecentageForCoinList } = require("../service/coinService");
-jest.mock("../service/coinService", () => ({
+const { getPrecentageForCoinList } = require("../services/coinService");
+jest.mock("../services/coinService", () => ({
   getPrecentageForCoinList: jest.fn()}));
   getPrecentageForCoinList.mockImplementation(() => {
     return {"BTC": "0%"};
@@ -22,6 +22,24 @@ test("test",  (done) => {
 test("test",  (done) => {
   request(app)
   .get('/coin')
+  .set('Accept', 'application/json')
+  .expect("validation error")
+  .expect(400, done);
+}); 
+
+test("test",  (done) => {
+  request(app)
+  .get('/coin')
+  .query({"timestamp":"01/2020","coinList":"BTC"})
+  .set('Accept', 'application/json')
+  .expect("validation error")
+  .expect(400, done);
+}); 
+
+test("test",  (done) => {
+  request(app)
+  .get('/coin')
+  .query({"timestamp":"01/01/2020"})
   .set('Accept', 'application/json')
   .expect("validation error")
   .expect(400, done);
