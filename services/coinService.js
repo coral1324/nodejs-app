@@ -1,5 +1,5 @@
 const {getCoinPriceForTimesatmp} = require("../clients/cryptoClient");
-const {calcPercentage, sortObject} = require("../utils/generalUtils");
+const {calcPercentage, sortObject, getTimestampFromDate} = require("../utils/generalUtils");
 //calculate precentage 
 const _getPrecentageForCoin = async(coinName, fromTimestamp, toTimestamp) => {
     let toPrice = await getCoinPriceForTimesatmp(coinName, toTimestamp);
@@ -9,7 +9,7 @@ const _getPrecentageForCoin = async(coinName, fromTimestamp, toTimestamp) => {
 }
 
 const getPrecentageForCoinList = async(coinList, timestamp) => {
-    let currentTimestamp = Math.floor(new Date().getTime()/1000);
+    let currentTimestamp = getTimestampFromDate();
     let result = await Promise.all(
         coinList.map(async(coin) => ({name: [coin], prec: await _getPrecentageForCoin(coin, timestamp, currentTimestamp)}))
         );

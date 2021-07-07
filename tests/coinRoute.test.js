@@ -1,8 +1,7 @@
 const app = require('../app');
 const request = require('supertest');
-
-
 const { getPrecentageForCoinList } = require("../services/coinService");
+
 jest.mock("../services/coinService", () => ({
   getPrecentageForCoinList: jest.fn()}));
   getPrecentageForCoinList.mockImplementation(() => {

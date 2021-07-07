@@ -8,4 +8,8 @@ const sortObject = (obj) => {
         return result;
     }, {});
 }
-module.exports = {calcPercentage, sortObject}
+
+const getTimestampFromDate = (strDate) => {
+    return Math.floor(new Date(strDate).getTime()/1000);
+}
+module.exports = {calcPercentage, sortObject, getTimestampFromDate}

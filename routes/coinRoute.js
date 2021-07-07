@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {getPrecentageForCoinList} = require("../services/coinService");
 const moment = require("moment");
+const {getTimestampFromDate} = require("../utils/generalUtils");
 
 const _validateParams = (params) => {
 if (params.coinList == null
@@ -17,8 +18,7 @@ if (params.coinList == null
 router.get('/', async function(req, res, next) {
  try {
   _validateParams(req.query)
- let result = await getPrecentageForCoinList(req.query.coinList.split(','), Math.floor(new Date(req.query.timestamp)
- .getTime()/1000));
+ let result = await getPrecentageForCoinList(req.query.coinList.split(','), getTimestampFromDate(req.query.timestamp));
  res.status(200);
  res.send(result);
  } catch (err) {

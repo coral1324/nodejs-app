@@ -1,8 +1,10 @@
 const {getPrecentageForCoinList} = require("../services/coinService");
 const {getCoinPriceForTimesatmp } = require("../clients/cryptoClient");
+const {getTimestampFromDate} = require("../utils/generalUtils");
+
 jest.mock("../clients/cryptoClient", () => ({
      getCoinPriceForTimesatmp: jest.fn()}));
-     const currentTimestamp = new Date("01/01/2020").getTime()
+     const currentTimestamp = getTimestampFromDate("01/01/2020");
   test('getPrecentageForCoin: calc + sort', () => {
     //mock creypto call
     const testResult = {BTC:[1,1], DOGE:[2,1], ETH:[1,2]};
@@ -12,5 +14,5 @@ jest.mock("../clients/cryptoClient", () => ({
       }
       return testResult[coinName][0];
     });
-    expect(getPrecentageForCoinList(["DOGE", "BTC", "ETH"], new Date("01/01/2020").getTime())).resolves.toEqual({"BTC": "0%",  "DOGE": "100%", "ETH": "-50%"});
+    expect(getPrecentageForCoinList(["DOGE", "BTC", "ETH"], getTimestampFromDate("01/01/2020"))).resolves.toEqual({"BTC": "0%",  "DOGE": "100%", "ETH": "-50%"});
   });
