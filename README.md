@@ -2,7 +2,7 @@
 
 ### Architecture
 
-* services folder - contanins the business logic.
+* services folder - contains the business logic.
 * routes folder - contains the basic route code(controller).
 * clients folder - contains crypto client code.
 * utils folder - contains helpers functions.
