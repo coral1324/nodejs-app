@@ -1,5 +1,5 @@
-const calcPercentage = (start, end)=> {
-    return Math.floor(((end-start)/start)*100);
+const calcPercentage = (start, end) => {
+    return Math.floor(((end - start) / start) * 100);
 }
 
 const sortObject = (obj) => {
@@ -11,11 +11,11 @@ const sortObject = (obj) => {
 
 const getTimestampFromDate = (strDate) => {
     let date;
-    if(!strDate) {
+    if (!strDate) {
         date = new Date();
     } else {
         date = new Date(strDate);
     }
-    return Math.floor(date.getTime()/1000);
+    return Math.floor(date.getTime() / 1000);
 }
-module.exports = {calcPercentage, sortObject, getTimestampFromDate}
+module.exports = { calcPercentage, sortObject, getTimestampFromDate }
